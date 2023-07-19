@@ -11,13 +11,14 @@ import Cart from './components/Cart'
 import Error from './components/Error'
 import { Provider } from 'react-redux'
 import {store} from './store'
+import Dummy from './components/Dummy';
+import UpdateData from './components/UpdateData'
 
 const AppLayout =()=>{
     return (
         <>
-        <Header />
-        
-        <Outlet/>
+        <Header/>
+       <Outlet/>
         </>
     )
 }
@@ -30,10 +31,6 @@ const appRoute=createBrowserRouter([
                 {
                     path:'/',
                     element:<Body/>
-                },
-                {
-                    path:'/about',
-                    element:<About/>
                 },
                 {
                     path:'/contact',
@@ -50,6 +47,10 @@ const appRoute=createBrowserRouter([
             ],
             errorElement:<Error/>,
         },
+        {
+            path:'/update',
+            element:<UpdateData/>,
+        }
         
 ])
 

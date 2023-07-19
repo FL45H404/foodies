@@ -12,8 +12,8 @@ const Header = () => {
             <div className="navmenu">
                 <ul>
                     <li><Link to='/'> HOME </Link></li>
-                    <li><Link to='/about'> ABOUT US</Link></li>
-                    <li><Link to='/contact'> CONTACT</Link></li>
+                    {/*<li><Link to='/about'> ABOUT US</Link></li>
+    <li><Link to='/contact'> CONTACT</Link></li>**/}
                     <li><Link to='/cart'> CART {data.length>=1 ? data.length:''} </Link></li>
                 </ul>
             </div>
