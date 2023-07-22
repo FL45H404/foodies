@@ -47,10 +47,6 @@ const appRoute=createBrowserRouter([
             ],
             errorElement:<Error/>,
         },
-        {
-            path:'/update',
-            element:<UpdateData/>,
-        }
         
 ])
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ResCard from "./ResCard"
-// import { data } from '../utils/sampleData'
 import DummyCard from './DummyCard'
 const Body = () => {
 const [data,setData]=useState([])
@@ -12,11 +11,11 @@ useEffect(()=>{
 },[])
 
 const fetchData=async()=>{
-    const data=await fetch('https://www.swiggy.com/mapi/homepage/getCards?lat=12.9715987&lng=77.5945627')
+    const data=await fetch('https://www.swiggy.com/dapi/homepage/getCards?lat=12.9715987&lng=77.5945627')
     const json=await data.json()
-    setData(json.data?.success?.cards[1].gridWidget?.gridElements?.infoWithStyle?.restaurants)
-    setListData(json.data?.success?.cards[1].gridWidget?.gridElements?.infoWithStyle?.restaurants)
-    console.log(json.data?.success?.cards[1].gridWidget?.gridElements?.infoWithStyle?.restaurants)
+    setData(json.data?.success?.cards[0].favourite?.cards)
+    setListData(json.data?.success?.cards[0].favourite?.cards)
+    // console.log(json.data?.success?.cards[0].favourite?.cards[0])
 }
 
 if (listData.length===0) return <DummyCard/>
@@ -33,7 +32,7 @@ if (listData.length===0) return <DummyCard/>
                     <button className='btn btn-search' 
                     onClick={()=>{
                         let filterList=data.filter(
-                        (item)=>item.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                        (item)=>item.data.name.toLowerCase().includes(searchText.toLowerCase()))
                         setListData(filterList)
                     }}>Search</button>
                 </div>
@@ -47,7 +46,7 @@ if (listData.length===0) return <DummyCard/>
         className=' btn btn-rate'
         onClick={()=>{
                const filterList=data.filter(
-                (item)=> item.info.avgRating > 4
+                (item)=> item.data.avgRating > 4
                 )
                 setListData(filterList)
             }}>Top Rated Restaurant</button>
@@ -56,7 +55,7 @@ if (listData.length===0) return <DummyCard/>
         className='btn btn-veg'
         onClick={()=>{
                const filterList=data.filter(
-                (item)=> item.info.veg ===true
+                (item)=> item.data.veg ===true
                 )
                 setListData(filterList)
             }}>Veg Restaurant</button>
@@ -65,7 +64,7 @@ if (listData.length===0) return <DummyCard/>
         className='btn btn-nonveg'
         onClick={()=>{
                const filterList=data.filter(
-                (item)=> item.info.veg !==true
+                (item)=> item.data.veg !==true
                 )
                 setListData(filterList)
             }}>Non Veg Restaurant</button>
@@ -75,8 +74,8 @@ if (listData.length===0) return <DummyCard/>
             
             <div className="res-container">
             {
-                listData.map((res)=>{
-                  return  <ResCard key={res.info.id} resData={res}/>
+                listData.map((res,index)=>{
+                  return  <ResCard key={res.data.id} resData={res}/>
                 })
             }
             </div>

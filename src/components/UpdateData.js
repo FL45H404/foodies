@@ -2,7 +2,6 @@ import React from 'react'
 
 const UpdateData = () => {
 
-
     const handleUpdate=()=>{}
   return (
     <div className='update'>

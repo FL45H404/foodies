@@ -2,7 +2,7 @@ import React from 'react'
 import { IMG_URL } from "../utils/constant"
 import { Link } from 'react-router-dom'
 const ResCard = ({resData}) => {
-    const {id,name,avgRating,cuisines,cloudinaryImageId,costForTwo,sla}=resData?.info
+    const {id,name,avgRating,cuisines,cloudinaryImageId,costForTwo,slaString}=resData?.data
     return (
         
         <div className="res-card">
@@ -20,7 +20,7 @@ const ResCard = ({resData}) => {
             </div>
             <span className='divider'></span>
             <div className="timing">
-            {sla?.slaString}
+            {slaString}
             </div>
             <span className='divider'></span>
             <div className="offercost">

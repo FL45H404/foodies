@@ -20,25 +20,24 @@ const Menu = (data) => {
         </div>
         <div className='menu-image'>
             <img className='menu-img' src={IMG_URL+imageId}/>
+            <ToastContainer />
             <button className='menu-addbtn' 
             onClick={()=>{
               dispatch(addToCart({...data.data,quantity:1})
               )
               toast.success('Added to Cart', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
+                // pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "light",
                 });
             }}>Add To Cart</button>
-            <ToastContainer />
-           {/**  <button onClick={()=>{
-              dispatch(deleteFromCart(id))
-            }}>Remove</button> */}
+            
+          
         </div>
        
     </div>

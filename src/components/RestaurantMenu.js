@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom'
 import DummyCard from './DummyCard'
 import Menu from './Menu';
 import StarIcon from '@mui/icons-material/Star';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+
 const RestaurantMenu=()=>{
 
     const [data,setData]=useState([])

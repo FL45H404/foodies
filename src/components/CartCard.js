@@ -6,7 +6,7 @@ const CartCard = ({item}) => {
     const dispatch=useDispatch()
   return (
     <div>
-        <div className="menus menu-cart">
+        <div className="cmenus menu-cart">
               <div className='menu-info'>
                 <div className='menu-name'>{item.name}</div>
                 <div className='menu-price'>Rs: {item.price/100 || item.defaultPrice/100}</div>
