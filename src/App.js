@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React, { lazy, Suspense,useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter ,RouterProvider,Outlet} from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+
 import Header from './components/Header'
 import Body from './components/Body'
 import About from './components/About'
-import Contact from './components/Contact'
 import RestaurantMenu from './components/RestaurantMenu'
 import Cart from './components/Cart'
+const Contact=lazy(()=>import('./components/Contact'))
 import Error from './components/Error'
 import { Provider } from 'react-redux'
 import {store} from './store'
-import Dummy from './components/Dummy';
-import UpdateData from './components/UpdateData'
 
 const AppLayout =()=>{
     return (
@@ -34,7 +32,9 @@ const appRoute=createBrowserRouter([
                 },
                 {
                     path:'/contact',
-                    element:<Contact/>
+                    element:<Suspense fallback={'Loading....'}>
+                    <Contact/>
+                    </Suspense>,
                 },
                 {
                     path:'/restaurant/:id',
