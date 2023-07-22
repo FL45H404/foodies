@@ -1,16 +1,16 @@
-import React, { lazy, Suspense,useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter ,RouterProvider,Outlet} from 'react-router-dom'
 
-import Header from './components/Header'
-import Body from './components/Body'
-import About from './components/About'
-import RestaurantMenu from './components/RestaurantMenu'
-import Cart from './components/Cart'
-const Contact=lazy(()=>import('./components/Contact'))
-import Error from './components/Error'
+import Header from './src/components/Header'
+import Body from './src/components/Body'
+import About from './src/components/About'
+import RestaurantMenu from './src/components/RestaurantMenu'
+import Cart from './src/components/Cart'
+const Contact=lazy(()=>import('./src/components/Contact'))
+import Error from './src/components/Error'
 import { Provider } from 'react-redux'
-import {store} from './store'
+import {store} from './src/store'
 
 const AppLayout =()=>{
     return (

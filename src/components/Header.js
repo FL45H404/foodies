@@ -9,8 +9,8 @@ const Header = () => {
         <>
         <div className='header'>
             <div className="logo">
-                <img src={require('../logo1.png')} alt="logo" className="logoimage" />
-            </div>
+               <Link to='/'> <img src={require('../logo1.png')} alt="logo" className="logoimage" /></Link>
+               </div>
             <div className="navmenu">
                 <ul className='menus'>
                     <li><Link to='/'> HOME </Link></li>
