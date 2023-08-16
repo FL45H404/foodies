@@ -102,7 +102,7 @@ const Cart = () => {
             <div className="cart-info-btn"><button onClick={()=>navigate('/')}>ADD ITEM</button></div>
           </div>
         )}
-        <div className="billslide">
+        <div className="billslide billl">
           <h2>Total : {total / 100}</h2>
           <button className="billslidebtn">Pay Amount</button>
         </div>
