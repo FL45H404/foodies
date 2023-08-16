@@ -31,14 +31,17 @@ export const CartSlice=createSlice({
         },
         deleteFromCart:(state,action)=>{
             const data=state.cart.find((item)=>item.id===action.payload)
-            console.log(data)
             let total=data.price*data.quantity || data.defaultprice*data.quantity
             
             state.total-=total
             state.cart=state.cart.filter((item)=>item.id!==action.payload)
+        },
+        emptyCart:(state)=>{
+            state.cart=[];
+            state.total=0;
         }
     }
 
 })
-export const {addToCart,removeFromCart,deleteFromCart}=CartSlice.actions
+export const {addToCart,removeFromCart,deleteFromCart,emptyCart}=CartSlice.actions;
 export default CartSlice.reducer

@@ -201,27 +201,32 @@ box-shadow: 0px 4px 5px #343a40;
 .dummy-img{
     width:100%;
     height:100px;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    animation: changecolor 1s infinite linear alternate;
+}
+@keyframes changecolor {
+    0%{
+background-color: hsla(0, 1%, 73%, 0.2);
+    }
+    100%{
+        background-color: hsla(0, 1%, 73%, 1);
+    }
     
 }
-
 .dummy-head{
     width:100%;
     height:15px;
-    background-color: #f0f0f0;
-
+    animation: changecolor 1s infinite linear alternate;
 }
 .dummy-type{
-    margin-top: 5px;
-    width: 100%;
-    background-color: #f0f0f0;
+    margin-top: 5px;animation: changecolor 1s infinite linear alternate; 
 
 }
 .dummy-bottom{
     margin-top: 10px;
     margin-left: -15px;
     margin-bottom: 25px;
-    background-color: #f0f0f0;
+    animation: changecolor 1s infinite linear alternate;
 }
 
 .menu ,.cart{
@@ -238,23 +243,28 @@ box-shadow: 0px 4px 5px #343a40;
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
+    padding: 50px 10px;
 }
 .restaurantname .res-name{
+    color: #ffffff;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 11px #000;
+    margin-bottom: 8px;
     font-size: 24px;
     font-weight: 600;
-    color: #282c3f;
-    margin-bottom: 8px;
-    text-transform: capitalize;
+    letter-spacing: 1px;
 }
 .restaurantname .res-address{
     display: flex;
     flex-direction: column;
-font-size: 12px;
-    color: #7e808c;
+font-size: 14px;
+    color: #ffffff;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 4px;
     white-space: nowrap;
+    text-shadow: 1px 1px black;
+    letter-spacing: 1px;
 }
 .restaurantname .res-address .res-area{
     font-size: 12px;
@@ -273,6 +283,7 @@ font-size: 12px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin:5px;
     padding:2px 5px;
+    box-shadow: 2px 3px 3px 2px gray;
 }
 .restarauntrating .ratenum{
     display: flex;
@@ -283,10 +294,11 @@ padding: 5px 10px;
 }
 
 .restarauntrating .ratetext{
-font-size:12px;
-color: #8b8d97;
-font-weight: 600;
-padding: 5px;
+    color: #ffffff;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px black;
 }
 .res-details{
     display: flex;
@@ -310,6 +322,16 @@ padding: 5px;
 .menu-cart{
     width:100%;
 
+}
+.backbtn{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.backbutton{
+    width:2rem;
+    height:2rem;
+    rotate: 180deg;
 }
 .cmenus,.menus{
     display: flex;
@@ -372,33 +394,94 @@ padding: 5px;
     background-color: #dcd2d2;
 }
 .cart{
+    flex-direction: column;
+    justify-content: center;
     display: flex;
+}
+.cart-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-container{
+    display:flex;
     flex-direction: row;
-    justify-content: space-around;
+}
+.cart-nav-right{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    background: #343a40;
+}
+.cart-nav-right:hover{
+    box-shadow: 1px 1px 5px 3px #3e4152;
 }
 .btns{
     margin-top: 5px;
     padding: 5px;
 }
 .leftbtn ,.rightbtn{
-    margin:0 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 2px 10px;
 }
 .menu-btn{
     margin-top:10px;
+}
+.menu-btn-remove .deletebtn:hover{
+    color:red;
+    box-shadow: 1px 1px 3px 3px gray;
+    border: none;
+    outline: none;
+}
+.cart .cart-info{
+    flex:2;
+    width: 100%;
+    margin-top: 10px;
+}
+.cart-info-head{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.cart-info-btn{
+    margin: 25px auto;
+}
+.cart-info-btn button{
+    cursor: pointer;
+    display: block;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: none;
+    background: #495057;
+    color: white;
+}
+.cart-info-btn button:hover,.cart-info-btn button:focus{
+    box-shadow: 1px 1px 5px 1px black;
 }
 .billslide{
     display: flex;
     margin: 10px;
     height: 100px;
+    padding: 20px 10px;
     width: 30%;
     border: 1px solid;
     flex-direction: column;
     align-items: center;
+    flex:1;
 }
+
 .billslidebtn{
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #fff;
     background-color: teal;
-    color: white;
     border-radius: 10px;
+    border: none;
+    margin-top: 10px;
 }
 .menu-image1{
     display: flex;
@@ -462,6 +545,9 @@ padding: 5px;
         padding: 5px 15px;
         flex-direction: column;
     }
+    .filter > .btn, .btn-search{
+        margin:5px 10px;
+    }
     .res-card {
         width: 40%;
         padding: 5px;
@@ -496,6 +582,10 @@ padding: 5px;
         display: flex;
         margin: 10px 20px;
         padding: 5px 15px;
+        flex-direction: column;
+    }
+    .cart-container {
+        display: flex;
         flex-direction: column;
     }
     .menu-image {
@@ -544,6 +634,7 @@ padding: 5px;
         height: 80px;
         border-radius: 15px;
     }
+    .billslide{width:70%;}
   }
 
   @media screen and (max-width:900px) {
